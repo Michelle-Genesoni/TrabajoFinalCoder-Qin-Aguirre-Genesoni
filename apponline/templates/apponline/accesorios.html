@@ -1,0 +1,49 @@
+{% extends "apponline/plantilla_base.html" %}
+
+{% block style_block %}
+<style>
+  table.coder-table {
+    border:3px solid;
+  }
+  th,
+  td {
+    border:1px solid;
+    padding:5px 10px;
+  }
+</style>
+{% endblock style_block %}
+
+{% block contenido_base %}
+
+<h1>Accesorios</h1>
+<a href="{% url 'accesorios_formulario' %}">Crear accesorios!</a>
+<br>
+<a href="{% url 'busqueda_accesorios_form' %}">Buscar Accesorios</a>
+
+<br><br>
+<h3>Accesorios:</h3>
+
+<table class="coder-table">
+  <tbody>
+    <tr>
+      <th>
+        <strong>Nombre</strong>
+      </th>
+      <th>
+        <strong>Codigo</strong>
+      </th>
+      <th>
+        <strong>Stock</strong>
+      </th>
+    </tr>
+    {% for accesorio in accesorios %}
+    <tr>
+      <td>{{accesorio.nombre}}</td>
+      <td>{{accesorio.codigo}}</td>
+      <td>{{accesorio.stock}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock contenido_base %}
