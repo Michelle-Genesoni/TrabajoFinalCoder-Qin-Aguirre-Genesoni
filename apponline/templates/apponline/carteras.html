@@ -16,11 +16,21 @@
 {% block contenido_base %}
 
 <h1>Carteras</h1>
+<img src="https://insolitonoticias.com/wp-content/uploads/2015/04/imitacion_nike_.jpg"
+
+width="500"
+height="300">
+
+
+<br>
+<br>
+<br>
+<br>
 <a href="{% url 'carteras_formulario' %}">Crear carteras!</a>
 <br>
 <a href="{% url 'busqueda_carteras_form' %}">Buscar Carteras</a>
+<br><br> 
 
-<br><br>
 <h3>Carteras:</h3>
 
 <table class="coder-table">
@@ -41,6 +51,7 @@
       <td>{{cartera.nombre}}</td>
       <td>{{cartera.codigo}}</td>
       <td>{{cartera.stock}}</td>
+      <td></td>
     </tr>
     {% endfor %}
   </tbody>

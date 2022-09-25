@@ -1,7 +1,7 @@
 from tkinter import commondialog
 from typing import Dict
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse 
 from django.http import HttpResponse
 from django.template import loader
 from apponline.models import Carteras, Camperas, Zapatos, Accesorios
@@ -15,6 +15,8 @@ def inicio(request):
 
 def carteras(request):
       carteras = Carteras.objects.all()
+      contexto = {"carteras": carteras}
+      borrado = request.GET.get('borrado', None) 
       return render(request, "apponline/carteras.html", {'carteras': carteras})
 
 
@@ -143,3 +145,11 @@ def buscar_accesorios(request):
             return render(request, "apponline/accesorios.html", {'accesorios': accesorios})
       else:
             return render(request, "apponline/accesorios.html", {'accesorios': []})
+
+def eliminar_cartera(request, id):
+      cartera = cartera.objects.get(id=id) 
+      cartera.delete()
+
+      return redirect('/tienda-online/carteras/')
+
+
