@@ -25,5 +25,5 @@ urlpatterns = [
     path('busqueda-accesorios-form/', views.busqueda_accesorios, name="busqueda_accesorios_form"),
     path('busqueda-accesorios/', views.buscar_accesorios, name="busqueda_accesorios"),
 
-
+    path('register/', views.register, name = "register"),
 ]

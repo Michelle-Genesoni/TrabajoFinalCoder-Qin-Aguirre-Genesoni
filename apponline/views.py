@@ -1,12 +1,20 @@
 from tkinter import commondialog
 from typing import Dict
 
-from django.shortcuts import render, redirect, reverse 
+from django.shortcuts import render, redirect, reverse
+
 from django.http import HttpResponse
 from django.template import loader
-from apponline.models import Carteras, Camperas, Zapatos, Accesorios
-from apponline.forms import CarterasFormulario, CamperasFormulario, ZapatosFormulario, AccesoriosFormulario
 
+
+from apponline.models import Carteras, Camperas, Zapatos, Accesorios
+from apponline.forms import CarterasFormulario, CamperasFormulario, ZapatosFormulario, AccesoriosFormulario, UserRegisterForm
+
+#Para el login
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.mixins import LoginRequiredMixin 
 
 def inicio(request):
 
@@ -146,10 +154,31 @@ def buscar_accesorios(request):
       else:
             return render(request, "apponline/accesorios.html", {'accesorios': []})
 
-def eliminar_cartera(request, id):
-      cartera = cartera.objects.get(id=id) 
-      cartera.delete()
 
-      return redirect('/tienda-online/carteras/')
+#Views de usuarios, registro, login o logout
+
+def register(request):
+      mensaje = ''
+      if request.method == 'POST':
+            form = UserRegisterForm(request.POST)
+
+            if form.is_valid():
+                  form.save()
+                  return render(request, "apponline/inicio.html", {"mensaje": "Usuario Creado :)"})
+
+            else:
+                  mensaje = 'Error al registrarse'
+      formulario = UserRegisterForm()
+      context = {"form": formulario}
+      if mensaje:
+            context['mensaje'] = mensaje 
+      return render(request, "apponline/registro.html", context)
+
+
+
+
+
+
+
 
 
