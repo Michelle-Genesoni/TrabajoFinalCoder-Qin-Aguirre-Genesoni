@@ -32,13 +32,17 @@
                 <a class="navbar-brand" href="{% url 'zapatos' %}">Zapatos</a>
                 <a class="navbar-brand" href="{% url 'camperas' %}">Camperas</a>
                 <a class="navbar-brand" href="{% url 'accesorios' %}">Accesorios</a>
+                {% if user.is_authenticated %}
+                <a class="btn btn-warning" href="{% url 'logout' %}">Cerrar sesion</a>
+                {% else %}
                 <a class="btn btn-primary" href="{% url 'register' %}">Registrarse</a>
+                {% endif %}
             </div>
         </nav>
 
         <section style="padding:80px;">
             {% if mensaje %}
-            <span style="background-color: blue;">{{mensaje}}</span>
+            <span style="background-color: orange;">{{mensaje}}</span>
             {% endif%}
             {% block contenido_base %}
             {% endblock contenido_base %}

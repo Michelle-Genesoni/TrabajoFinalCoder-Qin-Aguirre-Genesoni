@@ -25,5 +25,8 @@ urlpatterns = [
     path('busqueda-accesorios-form/', views.busqueda_accesorios, name="busqueda_accesorios_form"),
     path('busqueda-accesorios/', views.buscar_accesorios, name="busqueda_accesorios"),
 
-    path('register/', views.register, name = "register"),
+#urls para login , registro y cerrar sesion
+    path('login/', views.login_request, name = 'login'),
+    path('register/', views.register, name = 'register'),
+    path('logout/', views.CustomLogoutView.as_view(), name = 'logout'),  
 ]

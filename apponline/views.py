@@ -1,7 +1,9 @@
 from tkinter import commondialog
 from typing import Dict
 
+#Eliminar, editar, crear
 from django.shortcuts import render, redirect, reverse
+from django.contrib.auth.views import LogoutView
 
 from django.http import HttpResponse
 from django.template import loader
@@ -16,8 +18,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth.mixins import LoginRequiredMixin 
 
+@login_required 
 def inicio(request):
-
       return render(request, "apponline/inicio.html")
 
 
@@ -173,6 +175,34 @@ def register(request):
       if mensaje:
             context['mensaje'] = mensaje 
       return render(request, "apponline/registro.html", context)
+
+
+
+def login_request(request):
+      if request.method == 'POST':
+            form = AuthenticationForm(request, data=request.POST)
+
+            if form.is_valid():
+                  usuario = form.cleaned_data.get('username')
+                  contraseña = form.cleaned_data.get('password')
+                  user = authenticate(username=usuario, password=contraseña)
+
+                  if user:
+                        login(request=request, user=user) 
+                        return render(request, "apponline/inicio.html", {"mensaje":f"Bienvenido a la tienda {usuario}"})
+                        
+                  else:
+                        return render(request, "apponline/inicio.html", {"mensaje": "Error, los datos ingresados son incorrectos :)"})
+            else:
+                  return render(request, "apponline/login.html", {"mensaje": "Error, los datos son incorrectos:)"})
+
+      form = AuthenticationForm()
+      return render(request, "apponline/login.html", {'form':form})
+
+class CustomLogoutView(LogoutView):
+      template_name = 'apponline/logout.html'
+
+      
 
 
 
