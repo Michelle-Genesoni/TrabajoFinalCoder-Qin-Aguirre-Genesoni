@@ -22,24 +22,24 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def inicio(request):
       return render(request, "apponline/inicio.html")
 
-
+@login_required 
 def carteras(request):
       carteras = Carteras.objects.all()
       contexto = {"carteras": carteras}
       borrado = request.GET.get('borrado', None) 
       return render(request, "apponline/carteras.html", {'carteras': carteras})
 
-
+@login_required 
 def camperas(request):
       camperas = Camperas.objects.all()
       return render(request, "apponline/camperas.html", {'camperas': camperas})
 
-
+@login_required 
 def zapatos(request):
       zapatos = Zapatos.objects.all()
       return render(request, "apponline/zapatos.html", {'zapatos': zapatos})
 
-
+@login_required 
 def accesorios(request):
       accesorios = Accesorios.objects.all()
       return render(request, "apponline/accesorios.html",{'accesorios': accesorios})
@@ -55,7 +55,7 @@ def accesorios(request):
 #       else:  # GET
 #             return render(request, "apponline/form_carteras.html")
 
-
+@login_required 
 def carteras_formulario(request):
       if request.method == 'POST':
             formulario= CarterasFormulario(request.POST)
@@ -70,12 +70,12 @@ def carteras_formulario(request):
       return render(request, "apponline/form_carteras.html", {"formulario": formulario})
 
 
-
+@login_required 
 def busqueda_carteras(request):
       return render(request, "apponline/form_busqueda_carteras.html")
 
 
-
+@login_required 
 def buscar_carteras(request):
       if request.GET["codigo"]:
             codigo = request.GET["codigo"]
@@ -84,6 +84,7 @@ def buscar_carteras(request):
       else:
             return render(request, "apponline/carteras.html", {'carteras': []})
 
+@login_required 
 def camperas_formulario(request):
       if request.method == 'POST':
             formulario1= CamperasFormulario(request.POST)
@@ -97,9 +98,11 @@ def camperas_formulario(request):
             formulario1= CamperasFormulario()  # Formulario vacio para construir el html
       return render(request, "apponline/form_camperas.html", {"formulario": formulario1})
 
+@login_required 
 def busqueda_camperas(request):
             return render(request, "apponline/form_busqueda_camperas.html")
 
+@login_required 
 def buscar_camperas(request):
       if request.GET["codigo"]:
             codigo = request.GET["codigo"]
@@ -108,6 +111,7 @@ def buscar_camperas(request):
       else:
             return render(request, "apponline/camperas.html", {'camperas': []})
 
+@login_required 
 def zapatos_formulario(request):
       if request.method == 'POST':
             formulario2= ZapatosFormulario(request.POST)
@@ -121,9 +125,11 @@ def zapatos_formulario(request):
             formulario2= ZapatosFormulario()  # Formulario vacio para construir el html
       return render(request, "apponline/form_zapatos.html", {"formulario": formulario2})
 
+@login_required 
 def busqueda_zapatos(request):
             return render(request, "apponline/form_busqueda_zapatos.html")
 
+@login_required 
 def buscar_zapatos(request):
       if request.GET["codigo"]:
             codigo = request.GET["codigo"]
@@ -132,6 +138,7 @@ def buscar_zapatos(request):
       else:
             return render(request, "apponline/zapatos.html", {'zapatos': []})
 
+@login_required 
 def accesorios_formulario(request):
       if request.method == 'POST':
             formulario3= AccesoriosFormulario(request.POST)
@@ -145,9 +152,11 @@ def accesorios_formulario(request):
             formulario3= AccesoriosFormulario()  # Formulario vacio para construir el html
       return render(request, "apponline/form_accesorios.html", {"formulario": formulario3})
 
+@login_required 
 def busqueda_accesorios(request):
             return render(request, "apponline/form_busqueda_accesorios.html")
 
+@login_required 
 def buscar_accesorios(request):
       if request.GET["codigo"]:
             codigo = request.GET["codigo"]
@@ -158,7 +167,6 @@ def buscar_accesorios(request):
 
 
 #Views de usuarios, registro, login o logout
-
 def register(request):
       mensaje = ''
       if request.method == 'POST':
@@ -175,7 +183,6 @@ def register(request):
       if mensaje:
             context['mensaje'] = mensaje 
       return render(request, "apponline/registro.html", context)
-
 
 
 def login_request(request):
