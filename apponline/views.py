@@ -22,7 +22,7 @@ from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 
-
+@login_required
 def inicio(request):
       return render(request, "apponline/inicio.html")
 
@@ -175,6 +175,7 @@ def buscar_accesorios(request):
 
 class CustomLogoutView(LogoutView):
       template_name = 'apponline/logout.html'
+      next_page = reverse_lazy('inicio')
 
 
 def register(request):
