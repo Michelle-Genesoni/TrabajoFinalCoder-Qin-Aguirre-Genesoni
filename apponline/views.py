@@ -1,24 +1,28 @@
+from inspect import Attribute
 from tkinter import commondialog
-from typing import Dict
+from typing import Dict, Final
 
 #Eliminar, editar, crear
-from django.shortcuts import render, redirect, reverse
-from django.contrib.auth.views import LogoutView
+from django.shortcuts import render, redirect
+from django.urls import reverse, reverse_lazy
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+
 
 from django.http import HttpResponse
 from django.template import loader
 
 
 from apponline.models import Carteras, Camperas, Zapatos, Accesorios
-from apponline.forms import CarterasFormulario, CamperasFormulario, ZapatosFormulario, AccesoriosFormulario, UserRegisterForm
+from apponline.forms import CarterasFormulario, CamperasFormulario, ZapatosFormulario, AccesoriosFormulario, UserRegisterForm, UserUpdateForm
 
-#Para el login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required 
-from django.contrib.auth.mixins import LoginRequiredMixin 
+from django.contrib.auth.views import LogoutView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 
-@login_required 
+
 def inicio(request):
       return render(request, "apponline/inicio.html")
 
@@ -166,7 +170,13 @@ def buscar_accesorios(request):
             return render(request, "apponline/accesorios.html", {'accesorios': []})
 
 
+
 #Views de usuarios, registro, login o logout
+
+class CustomLogoutView(LogoutView):
+      template_name = 'apponline/logout.html'
+
+
 def register(request):
       mensaje = ''
       if request.method == 'POST':
@@ -196,8 +206,7 @@ def login_request(request):
 
                   if user:
                         login(request=request, user=user) 
-                        return render(request, "apponline/inicio.html", {"mensaje":f"Bienvenido a la tienda {usuario}"})
-                        
+                        return render(request, "apponline/inicio.html", {"mensaje":f"Bienvenido a la tienda {usuario}"})                        
                   else:
                         return render(request, "apponline/inicio.html", {"mensaje": "Error, los datos ingresados son incorrectos :)"})
             else:
@@ -206,10 +215,18 @@ def login_request(request):
       form = AuthenticationForm()
       return render(request, "apponline/login.html", {'form':form})
 
-class CustomLogoutView(LogoutView):
-      template_name = 'apponline/logout.html'
 
+#Editar perfil del usuario
+
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+      model = User
+      form_class = UserUpdateForm    
+      success_url = reverse_lazy('inicio')
+      template_name = "apponline/form_perfil.html"
       
+      def get_object(self, queryset=None):
+          return self.request.user 
+
 
 
 

@@ -25,8 +25,14 @@ urlpatterns = [
     path('busqueda-accesorios-form/', views.busqueda_accesorios, name="busqueda_accesorios_form"),
     path('busqueda-accesorios/', views.buscar_accesorios, name="busqueda_accesorios"),
 
+
 #urls para login , registro y cerrar sesion
     path('login/', views.login_request, name = 'login'),
     path('register/', views.register, name = 'register'),
-    path('logout/', views.CustomLogoutView.as_view(), name = 'logout'),  
+    path('logout/', views.CustomLogoutView.as_view(), name = 'logout'), 
+
+
+#urls para editar perfil
+    path('editar-perfil/', views.ProfileUpdateView.as_view(), name='editar_perfil'),
+
 ]
