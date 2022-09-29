@@ -13,7 +13,7 @@ from django.template import loader
 
 
 from apponline.models import Carteras, Camperas, Zapatos, Accesorios
-from apponline.forms import CarterasFormulario, CamperasFormulario, ZapatosFormulario, AccesoriosFormulario, UserRegisterForm, UserUpdateForm
+from apponline.forms import CarterasFormulario, CamperasFormulario, ZapatosFormulario, AccesoriosFormulario, UserRegisterForm, UserUpdateForm, AvatarFormulario
 
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
@@ -227,6 +227,21 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
       
       def get_object(self, queryset=None):
           return self.request.user 
+
+
+def agregar_avatar(request):
+    if request.method == 'POST':
+            
+        form = AvatarFormulario(request.POST, request.FILES)
+      
+        if form.is_valid:
+            avatar = form.save()
+            avatar.user = request.user 
+            avatar.save()
+            return redirect(reverse('inicio'))
+            
+    form = AvatarFormulario()
+    return render(request, "apponline/form_avatar.html", {"form:form"})
 
 
 

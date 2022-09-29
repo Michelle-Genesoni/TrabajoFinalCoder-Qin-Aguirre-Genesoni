@@ -1,7 +1,8 @@
-from cProfile import Profile
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+
+from apponline.models import Avatar 
 
 class CarterasFormulario(forms.Form):
     nombre = forms.CharField(max_length=50)
@@ -33,10 +34,18 @@ class UserRegisterForm(UserCreationForm):
 
 
 class UserUpdateForm(forms.ModelForm):
-
+    
     class Meta:
         model = User
         fields = ['last_name', 'first_name', 'email']
+
+
+class AvatarFormulario(forms.ModelForm):
+
+    class Meta:
+        model = Avatar
+        fields = ['imagen']
+
 
 
 
