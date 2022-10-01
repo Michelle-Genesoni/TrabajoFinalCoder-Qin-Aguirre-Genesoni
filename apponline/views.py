@@ -33,21 +33,160 @@ def carteras(request):
       borrado = request.GET.get('borrado', None) 
       return render(request, "apponline/carteras.html", {'carteras': carteras})
 
+@login_required
+def eliminar_cartera(request, id):
+    cartera = Carteras.objects.get(id=id)
+    borrado_id = cartera.id
+    cartera.delete()
+    url_final = f"{reverse('carteras')}?borrado={borrado_id}"
+
+    return redirect(url_final)
+
+@login_required
+def editar_cartera(request, id):
+    cartera = Carteras.objects.get(id=id)
+
+    if request.method == 'POST':
+        formulario = CarterasFormulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+
+            cartera.nombre = data['nombre']
+            cartera.codigo = data['codigo']
+            cartera.stock = data['stock']
+            
+            cartera.save()
+
+            return redirect(reverse('carteras'))
+    else:  # GET
+        inicial = {
+            'nombre': cartera.nombre,
+            'codigo': cartera.codigo,
+            'stock': cartera.stock,
+        }
+        formulario = CarterasFormulario(initial=inicial)
+    return render(request, "apponline/form_carteras.html", {"formulario": formulario})
+    
 @login_required 
 def camperas(request):
       camperas = Camperas.objects.all()
       return render(request, "apponline/camperas.html", {'camperas': camperas})
+      
+@login_required
+def eliminar_campera(request, id):
+    campera = Camperas.objects.get(id=id)
+    borrado_id = campera.id
+    campera.delete()
+    url_final = f"{reverse('camperas')}?borrado={borrado_id}"
+
+    return redirect(url_final)
+
+@login_required
+def editar_campera(request, id):
+    campera = Camperas.objects.get(id=id)
+
+    if request.method == 'POST':
+        formulario = CamperasFormulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+
+            campera.nombre = data['nombre']
+            campera.codigo = data['codigo']
+            campera.stock = data['stock']
+            
+            campera.save()
+
+            return redirect(reverse('camperas'))
+    else:  # GET
+        inicial = {
+            'nombre': campera.nombre,
+            'codigo': campera.codigo,
+            'stock': campera.stock,
+        }
+        formulario = CamperasFormulario(initial=inicial)
+    return render(request, "apponline/form_camperas.html", {"formulario": formulario})
 
 @login_required 
 def zapatos(request):
       zapatos = Zapatos.objects.all()
       return render(request, "apponline/zapatos.html", {'zapatos': zapatos})
 
+@login_required
+def eliminar_zapato(request, id):
+      zapato = Zapatos.objects.get(id=id)
+      borrado_id = zapato.id
+      zapato.delete()
+      url_final = f"{reverse('zapatos')}?borrado={borrado_id}"
+
+      return redirect(url_final)
+
+@login_required
+def editar_zapato(request, id):
+    zapato = Zapatos.objects.get(id=id)
+
+    if request.method == 'POST':
+        formulario = ZapatosFormulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+
+            zapato.nombre = data['nombre']
+            zapato.codigo = data['codigo']
+            zapato.stock = data['stock']
+            
+            zapato.save()
+
+            return redirect(reverse('zapatos'))
+    else:  # GET
+        inicial = {
+            'nombre': zapato.nombre,
+            'codigo': zapato.codigo,
+            'stock': zapato.stock,
+        }
+        formulario = ZapatosFormulario(initial=inicial)
+    return render(request, "apponline/form_zapatos.html", {"formulario": formulario})
+
 @login_required 
 def accesorios(request):
       accesorios = Accesorios.objects.all()
       return render(request, "apponline/accesorios.html",{'accesorios': accesorios})
 
+@login_required
+def eliminar_accesorio(request, id):
+      accesorio = Accesorios.objects.get(id=id)
+      borrado_id = accesorio.id
+      accesorio.delete()
+      url_final = f"{reverse('accesorios')}?borrado={borrado_id}"
+
+      return redirect(url_final)
+
+@login_required
+def editar_accesorio(request, id):
+    accesorio = Accesorios.objects.get(id=id)
+
+    if request.method == 'POST':
+        formulario = AccesoriosFormulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+
+            accesorio.nombre = data['nombre']
+            accesorio.codigo = data['codigo']
+            accesorio.stock = data['stock']
+            
+            accesorio.save()
+
+            return redirect(reverse('accesorios'))
+    else:  # GET
+        inicial = {
+            'nombre': accesorio.nombre,
+            'codigo': accesorio.codigo,
+            'stock': accesorio.stock,
+        }
+        formulario = AccesoriosFormulario(initial=inicial)
+    return render(request, "apponline/form_accesorios.html", {"formulario": formulario})
 
 # Formulario a mano
 # def carteras_formulario(request):
