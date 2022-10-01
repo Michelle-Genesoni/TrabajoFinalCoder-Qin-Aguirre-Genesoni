@@ -1,0 +1,55 @@
+{% extends "apponline/plantilla_base.html" %}
+
+{% block style_block %}
+<style>
+  table.coder-table {
+    border:3px solid;
+  }
+  th,
+  td {
+    border:1px solid;
+    padding:5px 10px;
+  }
+</style>
+{% endblock style_block %}
+
+{% block contenido_base %}
+
+<h1>Carteras</h1>
+
+
+<br>
+<a href="{% url 'carteras_formulario' %}">Crear carteras!</a>
+<br>
+<a href="{% url 'busqueda_carteras_form' %}">Buscar Carteras</a>
+<br><br> 
+
+<h3>Carteras:</h3>
+
+<table class="coder-table">
+  <tbody>
+    <tr>
+      <th>
+        <strong>Nombre</strong>
+      </th>
+      <th>
+        <strong>Codigo</strong>
+      </th>
+      <th>
+        <strong>Stock</strong>
+      </th>
+    </tr>
+    {% for cartera in carteras %}
+    <tr>
+      <td>{{cartera.nombre}}</td>
+      <td>{{cartera.codigo}}</td>
+      <td>{{cartera.stock}}</td>
+      <td></td>
+      <td><a href="{% url 'eliminar_cartera' cartera.id %}">Eliminar</a></td>
+      <td><a href="{% url 'editar_cartera' cartera.id %}">Editar</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock contenido_base %}
