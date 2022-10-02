@@ -36,11 +36,14 @@
         <strong>Stock</strong>
       </th>
     </tr>
-    {% for zapatos in zapatos %}
+    {% for zapato in zapatos %}
     <tr>
-      <td>{{zapatos.nombre}}</td>
-      <td>{{zapatos.codigo}}</td>
-      <td>{{zapatos.stock}}</td>
+      <td>{{zapato.nombre}}</td>
+      <td>{{zapato.codigo}}</td>
+      <td>{{zapato.stock}}</td>
+      <td></td>
+      <td><a href= "{% url 'eliminar_zapato' zapato.id %}">Eliminar</a></td>
+      <td><a href="{% url 'editar_zapato' zapato.id %}">Editar</a></td>
     </tr>
     {% endfor %}
   </tbody>

@@ -45,6 +45,8 @@
       <td>{{cartera.codigo}}</td>
       <td>{{cartera.stock}}</td>
       <td></td>
+      <td><a href="{% url 'eliminar_cartera' cartera.id %}">Eliminar</a></td>
+      <td><a href="{% url 'editar_cartera' cartera.id %}">Editar</a></td>
     </tr>
     {% endfor %}
   </tbody>

@@ -41,6 +41,9 @@
       <td>{{campera.nombre}}</td>
       <td>{{campera.codigo}}</td>
       <td>{{campera.stock}}</td>
+      <td></td>
+      <td><a href="{% url 'eliminar_campera' campera.id %}">Eliminar</a></td>
+      <td><a href="{% url 'editar_campera' campera.id %}">Editar</a></td>
     </tr>
     {% endfor %}
   </tbody>

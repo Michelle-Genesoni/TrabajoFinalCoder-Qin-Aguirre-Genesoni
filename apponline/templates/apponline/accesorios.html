@@ -40,6 +40,9 @@
     <tr>
       <td>{{accesorio.nombre}}</td>
       <td>{{accesorio.codigo}}</td>
+      <td>{{accesorio.stock}}</td>
+      <td><a href="{% url 'eliminar_accesorio' accesorio.id %}">Eliminar</a></td>
+      <td><a href="{% url 'editar_accesorio' accesorio.id %}">Editar</a></td>
     </tr>
     {% endfor %}
   </tbody>
