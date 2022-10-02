@@ -22,9 +22,12 @@ from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 
-@login_required
+
 def inicio(request):
       return render(request, "apponline/inicio.html")
+
+def nosotros(request):
+      return render(request, "apponline/nosotros.html")
 
 @login_required 
 def carteras(request):
@@ -380,7 +383,7 @@ def agregar_avatar(request):
             return redirect(reverse('inicio'))
             
     form = AvatarFormulario()
-    return render(request, "apponline/form_avatar.html", {"form:form"})
+    return render(request, "apponline/form_avatar.html", {"form":form})
 
 
 

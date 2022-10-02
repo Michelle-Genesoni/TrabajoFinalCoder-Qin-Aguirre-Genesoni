@@ -4,6 +4,7 @@ from apponline import views
 
 urlpatterns = [
     path('', views.inicio, name="inicio"),
+    path('nosotros/', views.nosotros, name="nosotros"),
     path('carteras/', views.carteras, name="carteras"),
     path('camperas/', views.camperas, name="camperas"),
     path('zapatos/', views.zapatos, name="zapatos"),

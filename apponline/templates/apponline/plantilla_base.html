@@ -25,9 +25,10 @@
 
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-light bg-light static-top">
+        <nav class="navbar navbar-light bg-info static-top">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
+                <a class="navbar-brand" href="{% url 'nosotros' %}">Nosotros</a>
                 <a class="navbar-brand" href="{% url 'carteras' %}">Carteras</a>
                 <a class="navbar-brand" href="{% url 'zapatos' %}">Zapatos</a>
                 <a class="navbar-brand" href="{% url 'camperas' %}">Camperas</a>
@@ -35,7 +36,7 @@
                 {% if user.is_authenticated %}
 
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                       {{ user.username }}
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -60,17 +61,16 @@
 
 
         <!-- Footer-->
-        <footer class="footer bg-light">
+        <footer class="footer bg-info">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
                             <li class="list-inline-item"><a href="#!">Ayuda</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contacto</a></li>
-                      
+                            <li class="list-inline-item"><a href="/nosotros/">nosotros</a></li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Curso de Python - CoderHouse.</p>
+                        <div class="small m-0 text-white"> ©CoderHouse2022 - Genesoni/Qin/Aguirre </div>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
