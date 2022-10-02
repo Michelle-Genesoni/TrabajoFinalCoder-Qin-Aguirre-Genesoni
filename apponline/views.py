@@ -372,10 +372,8 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
 
 
 def agregar_avatar(request):
-    if request.method == 'POST':
-            
-        form = AvatarFormulario(request.POST, request.FILES)
-      
+    if request.method == 'POST':     
+        form = AvatarFormulario(request.POST, request.FILES)  
         if form.is_valid:
             avatar = form.save()
             avatar.user = request.user 
