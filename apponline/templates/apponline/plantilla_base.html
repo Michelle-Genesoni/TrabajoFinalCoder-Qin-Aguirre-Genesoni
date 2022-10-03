@@ -36,13 +36,14 @@
                 {% if user.is_authenticated %}
 
                 <div class="dropdown">
-                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                      {{ user.username }}
+                    <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{ user.avatar.imagen.url }}" width="50px" height="50px" alt="Avatar" />
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                       <li><a class="dropdown-item" href="{% url 'editar_perfil' %}">Editar datos</a></li>
                       <li><a class="dropdown-item" href="{% url 'agregar_avatar' %}">Agregar Avatar</a></li>
-                      <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesion</a></li>
+                      <div class="dropdown-divider"></div>
+                      <li><a class="dropdown-item" style="color: red" href="{% url 'logout' %}">Cerrar sesion</a></li>
                     </ul>
                   </div>
                 {% else %}

@@ -38,7 +38,7 @@ urlpatterns = [
 #urls para login , registro y cerrar sesion
     path('login/', views.login_request, name='login'),
     path('register/', views.register, name='register'),
-    path('logout/', views.CustomLogoutView.as_view(), name='logout'), 
+    path('logout/', views.CustomLogoutView.as_view(), name='logout'),
 
 
 #urls para editar perfil
