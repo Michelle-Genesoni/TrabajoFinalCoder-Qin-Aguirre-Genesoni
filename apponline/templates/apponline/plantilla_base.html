@@ -25,18 +25,18 @@
 
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-light bg-info static-top">
+        <nav class="navbar navbar-white bg-dark static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
-                <a class="navbar-brand" href="{% url 'nosotros' %}">Nosotros</a>
-                <a class="navbar-brand" href="{% url 'carteras' %}">Carteras</a>
-                <a class="navbar-brand" href="{% url 'zapatos' %}">Zapatos</a>
-                <a class="navbar-brand" href="{% url 'camperas' %}">Camperas</a>
-                <a class="navbar-brand" href="{% url 'accesorios' %}">Accesorios</a>
+                <a class="navbar-brand" href="{% url 'inicio' %}">♛Inicio</a>
+                <a class="navbar-brand" href="{% url 'nosotros' %}">▶Nosotros◀</a>
+                <a class="navbar-brand" href="{% url 'carteras' %}">♛Carteras</a>
+                <a class="navbar-brand" href="{% url 'zapatos' %}">♛Zapatos</a>
+                <a class="navbar-brand" href="{% url 'camperas' %}">♛Camperas</a>
+                <a class="navbar-brand" href="{% url 'accesorios' %}">♛Accesorios</a>
                 {% if user.is_authenticated %}
 
                 <div class="dropdown">
-                    <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                       {{ user.username }}
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -61,14 +61,14 @@
 
 
         <!-- Footer-->
-        <footer class="footer bg-info">
+        <footer class="footer bg-dark">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
                             <li class="list-inline-item"><a href="#!">Ayuda</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="/nosotros/">nosotros</a></li>
+                            <li class="list-inline-item"><a href="/nosotros/">Nosotros</a></li>
                         </ul>
                         <div class="small m-0 text-white"> ©CoderHouse2022 - Genesoni/Qin/Aguirre </div>
                     </div>

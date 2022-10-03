@@ -379,7 +379,6 @@ def agregar_avatar(request):
             avatar.user = request.user 
             avatar.save()
             return redirect(reverse('inicio'))
-            
     form = AvatarFormulario()
     return render(request, "apponline/form_avatar.html", {"form":form})
 
