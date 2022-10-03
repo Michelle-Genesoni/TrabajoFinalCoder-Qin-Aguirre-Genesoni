@@ -317,7 +317,7 @@ def buscar_accesorios(request):
 
 class CustomLogoutView(LogoutView):
       template_name = 'apponline/logout.html'
-      next_page = reverse_lazy('inicio')
+      next_page = reverse_lazy('login')
 
 
 def register(request):
