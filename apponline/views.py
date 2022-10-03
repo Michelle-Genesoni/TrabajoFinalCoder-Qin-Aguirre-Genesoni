@@ -29,7 +29,7 @@ def inicio(request):
 def nosotros(request):
       return render(request, "apponline/nosotros.html")
 
-@login_required 
+
 def carteras(request):
       carteras = Carteras.objects.all()
       contexto = {"carteras": carteras}
@@ -71,7 +71,7 @@ def editar_cartera(request, id):
         formulario = CarterasFormulario(initial=inicial)
     return render(request, "apponline/form_carteras.html", {"formulario": formulario})
     
-@login_required 
+
 def camperas(request):
       camperas = Camperas.objects.all()
       return render(request, "apponline/camperas.html", {'camperas': camperas})
@@ -111,7 +111,7 @@ def editar_campera(request, id):
         formulario = CamperasFormulario(initial=inicial)
     return render(request, "apponline/form_camperas.html", {"formulario": formulario})
 
-@login_required 
+
 def zapatos(request):
       zapatos = Zapatos.objects.all()
       return render(request, "apponline/zapatos.html", {'zapatos': zapatos})
@@ -151,7 +151,7 @@ def editar_zapato(request, id):
         formulario = ZapatosFormulario(initial=inicial)
     return render(request, "apponline/form_zapatos.html", {"formulario": formulario})
 
-@login_required 
+
 def accesorios(request):
       accesorios = Accesorios.objects.all()
       return render(request, "apponline/accesorios.html",{'accesorios': accesorios})

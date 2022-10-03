@@ -15,6 +15,14 @@
 
 <h2 class="text-center">✹𝑩𝒊𝒆𝒏𝒗𝒆𝒏𝒊𝒅𝒐𝒔 𝒂 𝒍𝒂 𝒏𝒖𝒆𝒗𝒂 𝒕𝒊𝒆𝒏𝒅𝒂 𝒐𝒏𝒍𝒊𝒏𝒆 𝒅𝒆 𝒓𝒐𝒑𝒂✹</h2>
     <div style="text-align:center ;">
+    {%if user.is_authenticated %} 
+    <img src="{{ user.avatar.imagen.url }}" width="" height="100px" alt="Avatar"/>
+    {% endif %}
+    
+
+    <br>
+    <br>
+    <br>
     <img
     src="https://insolitonoticias.com/wp-content/uploads/2015/04/imitacion_nike_.jpg"
     width="800px" height="300px" alt=""
