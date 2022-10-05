@@ -18,6 +18,8 @@ Acceder con nombre y password:
 Grupo de trabajo = Monica Qin - Michelle Genesoni y Pablo Aguirre
 
 Monica Qin = Realizo la preentrega debido a que Genesoni y Aguirre presentaban errores pero nos ayudamos entre si, tambien boton de editar y eliminar articulos y luego soluciono errores con agregar avatar y por ultimo realizacion de video funcionalidad de la pagina.
+
 Michelle Genesoni = Realizo ciertas modificaciones de colores a la plantilla ,el login , registro y cerrar sesion, boton about/nosotros con informacion y editar avatar con su respectiva imagen.
+
 Pablo Aguirre = Realizo los test y edito todas las diferentes vistas de la pagina con sus imagenes editadas y sus textos correspondientes customisando asi las mismas y boton detalles/nosotros en el pie de pagina
 
