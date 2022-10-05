@@ -3,7 +3,8 @@
 {% block contenido_base %}
 <head>
     <style>
-        h1{color:red;}
+        h1{color:purple}
+        h2{color:purple}
     </style>
 <!-- Cuerpo-->
 {% if exitoso %}
@@ -12,26 +13,60 @@
 {% endif %}
 
 <!-- Vista de inicio-->
-
-<h2 class="text-center">✹𝑩𝒊𝒆𝒏𝒗𝒆𝒏𝒊𝒅𝒐𝒔 𝒂 𝒍𝒂 𝒏𝒖𝒆𝒗𝒂 𝒕𝒊𝒆𝒏𝒅𝒂 𝒐𝒏𝒍𝒊𝒏𝒆 𝒅𝒆 𝒓𝒐𝒑𝒂✹</h2>
+<h2 class="text-center">✹Bienvenido A Nuestro Blog sobre una Tienda De Ropa :D✹</h2>
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoghVQZGw0xziBSHs6Je0ZhvcLx9R46KC2SUc4mYdK3svvZQsozL8ncCt2zKx4KSddIY7Mi8jF5mhJBhAemyK19uM5uQ6DjqZjAnd1OmwZ_PpIha5jmPQst28VKvSuVEDnP-nXCrUP4YIvyJvQmGvryyu_nb1TUFBuo5_JbnT8GJe12WwDvdXpcWyp/s1202/Opera%20Captura%20de%20pantalla_2022-10-04_172627_www.fotor.com.png" width="1300" height="450" alt=""/><em><strong>
+    <br><br><br><br>
+    <h2 class="text-center">Bienvenido a nuestro blog sobre las mejores tiendas de ropa y los Stocks de la mismas!!! </h2>
     <div style="text-align:center ;">
     {%if user.is_authenticated %} 
     <img src="{{ user.avatar.imagen.url }}" width="" height="100px" alt="Avatar"/>
     {% endif %}
-    
+    <br><br><br><br><br><br>
+<h1 class="text-center" >!Principales Eventos!
+    <p class="lead fw-normal text-muted mb-0">En este blog de indumentaria, la comunidad de usuarios se asegura mantener actualizado el stock de zapatos , carteras , camperas y accesorios
+        logrando evitar que cualquiera de sus amigos amantes de la moda realice una recorrida innecesaria al local para una compra fallida por falta de Stock
+    </p>
+    <section class="py-3 bg-light">
+        <div class="container px-5 my-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src=https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNtfa3jJhG9fOWc6fVEX3n793KqbSopK7pYSfE66lxv_9-AVl2qsZRSYQFBfqMdfl2dT2k_8vep8sFlUwC4qSo3PrITx-owMHejAohTlNmuXilXbhvJcrZ_N-E0jVBKLc8O0sNS59Bsf47t8u1prmlzDTPNPvcQCkvaB9GBYjXv--WWxPjsvzSRx5f/s925/PRIMAVERA.png alt="..." /></div>
+                <div class="col-lg-4">
+                    <h2 class="fw-bolder"  >➤Temporada Primavera 2022</h2>
+                    <p class="lead fw-normal text-muted mb-0">Enterate donde conserguir tu conjunto ideal con las mejores ofertas,
+                        Para que esta Primavera te sientas mas renovada que nunca 
+                        Con la posibilidad y amplia comodidad de realizar todas tus compras OnLine en los mejores sitio web que te recomendamos,
+                        Con envio a todo el pais y amplios metodos de pagos en comodas cuotas SIN INTERES!!! 
+                    </p>
+                    </div>
+                </div>
+            </section>
+            <section class="py-3 bg-light">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src=https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8EmB-piWV3UwoPJRN0RSVdE0bwdx4ZIxK5Skzmy5ivRYRwUcH_aztBsvglOMt2seS_WllAu0IFsZCE-DCgw_3yV6hVN_u4DmEOsHgoC_07TCi6wNAIO-dhGwnSbVj8p_u6QzDRGRr7Ewj0Q5cNS1YikfNHZ82KQ13BT_3AV9r7lTyap3mjVStxyL7/s1362/SORTEO.png alt="..." /></div>
+                        <div class="col-lg-4">
+                            <h2 class="fw-bolder"  >➤Gran Sorteo De Primavera!!!</h2>
+                            <p class="lead fw-normal text-muted mb-0">Con la llegada de esta hermosa primavera nosotros tambien quisimos
+                                renovar un poco nuestro trato hacia nuestros tan queridos usuarios por lo que decidimos realizar un sorteo 
+                                por varios premios a nuestros nada mas y nada menos que 3 grandes ganadores.
+                                (Proximamente traeremos mas noticias sobre el mismo asi que no olvides registrarte para enterarte antes que todos!!!)
+                            </p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="py-3 bg-light">
+                        <div class="container px-5 my-5">
+                            <div class="row gx-5 align-items-center">
+                                <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src=https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkb_pW9WZXdJZuu3bxo87Lt16NKXFWew5nf4Te6SM95_Qk05BRHVJ3793_VskKGGYCb_axGcm-BnEQd3dvqSSNGIAlYwYBF9vEY8YBgTizgkfizMe6w1OPh1__kKF3Mn5qdRdCZc0rXZAyYEXlAj5cxb8toR0QjJAKQyBNKjApkB70WVGmEE-bTArb/s697/Opera%20Captura%20de%20pantalla_2022-10-04_033613_www.fotor.com.png alt="..." /></div>
+                                <div class="col-lg-4">
+                                    <h2 class="fw-bolder"  >➤Principales Marcas Colaboradoras!</h2>
+                                    <p class="lead fw-normal text-muted mb-0">Dedicamos este espacio para enviarle un gran saludo a nuestras principales 
+                                        empresas colaboradoras y distribuidoras de productos de tan alta calidad para asi cumplir con hasta el mas minimo requisito
+                                        de nuestros tan amados usuarios para siempre poder mantenernos en alta,bajo sus productos 100% originales.
+                                        LOS QUEREMOS!
+                                    </p>
+                                    </div>
+                                </div>
+                            </section>
 
-    <br>
-    <br>
-    <br>
-    <img
-    src="https://insolitonoticias.com/wp-content/uploads/2015/04/imitacion_nike_.jpg"
-    width="800px" height="300px" alt=""
-    </div>
-
-
-
-
-<div class="news-cards">
-    <div>
-    
 {% endblock contenido_base %}
